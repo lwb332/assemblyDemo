@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-  import Emitter from '../../util/emitter.js'
+  import Emitter from '../../minxins/emitter'
   import AsyncValidator from 'async-validator'
   export default {
     inject: ['form'],
@@ -38,6 +38,9 @@
     },
     name: 'iFormItem',
     mixins: [ Emitter ],
+    created(){
+      
+    },
     // 组件渲染时，将实例缓存在 Form 中
     mounted () {
       // 如果没有传入 prop，则无需校验，也就无需缓存
@@ -93,7 +96,7 @@
        * @param callback 回调函数
        */
       validate(trigger, callback = function () {}) {
-        let rules = this.getFilteredRule(trigger);
+        let rules = this.getFilteredRule(trigger)
 
         if (!rules || rules.length === 0) {
           return true
@@ -112,8 +115,8 @@
         model[this.prop] = this.fieldValue
 
         validator.validate(model, { firstFields: true }, errors => {
-          this.validateState = !errors ? 'success' : 'error';
-          this.validateMessage = errors ? errors[0].message : '';
+          this.validateState = !errors ? 'success' : 'error'
+          this.validateMessage = errors ? errors[0].message : ''
 
           callback(this.validateMessage)
         })

@@ -8,7 +8,7 @@
          />
 </template>
 <script>
-  import Emitter from '../../util/emitter.js'
+  import Emitter from '../../minxins/emitter'
 
   export default {
     name: 'iInput',

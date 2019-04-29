@@ -33,6 +33,9 @@
         if (field.prop) this.fields.splice(this.fields.indexOf(field), 1)
       });
     },
+    mounted(){
+      
+    },
     methods: {
       // 公开方法：全部重置数据
       resetFields() {
